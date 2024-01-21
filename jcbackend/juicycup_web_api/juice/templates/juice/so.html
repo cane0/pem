@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send OTP</title>
+</head>
+
+<body>
+    <h1>Send OTP</h1>
+    <form id="sendOtpForm">
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+        <button type="button" onclick="sendOtp()">Send OTP</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function sendOtp() {
+            var phoneNumber = $('#phone_number').val();
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1:8000/api/send-otp/',
+                data: { phone_number: phoneNumber },
+                success: function (response) {
+                    alert(response.detail);
+                },
+                error: function (error) {
+                    alert('Error sending OTP', error);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

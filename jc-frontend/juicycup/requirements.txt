@@ -1,0 +1,25 @@
+npm i @react-navigation/native
+npm i @react-navigation/stack
+npm i axios
+npm i --save react-native-vector-icons
+npm i @rneui/themed
+npm i @react-native-async-storage/async-storage
+npm i react-native-reanimated 
+npm i react-native-gesture-handler 
+npm i react-native-screens 
+npm i react-native-safe-area-context
+
+npm i react-native-animatable --save
+
+npm i pizzip
+npm i docxtemplater
+npm i react-native-fs
+npm i react-native-google-places-autocomplete --save
+npm i react-native-maps
+npm install -g react-native-cli
+npm install react-native-permissions
+npm install --global eas-cli
+npx expo install expo-av
+
+# eas init --id 55a20a01-2ffb-4341-8a2b-01a79d3bcc86
+

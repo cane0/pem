@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+</head>
+
+<body>
+    <h1>Verify OTP</h1>
+    <form id="verifyOtpForm">
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+        <label for="otp">OTP:</label>
+        <input type="text" id="otp" name="otp" required>
+        <button type="button" onclick="verifyOtp()">Verify OTP</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function verifyOtp() {
+            var phoneNumber = $('#phone_number').val();
+            var otp = $('#otp').val();
+            $.ajax({
+                type: 'POST',
+                url: '/verify-otp/',
+                data: { phone_number: phoneNumber, otp: otp },
+                success: function (response) {
+                    alert(response.detail);
+                    if ('user_info' in response) {
+                        console.log(response.user_info);
+                        // Handle user info as needed
+                    }
+                },
+                error: function (error) {
+                    alert('Invalid OTP');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
